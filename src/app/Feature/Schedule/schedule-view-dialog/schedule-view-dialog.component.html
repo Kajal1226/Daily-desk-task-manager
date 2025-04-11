@@ -1,0 +1,24 @@
+<ng-container *ngIf="schedule$ | async as data">
+    <div class="p-6 rounded-xl bg-zinc-900 shadow-lg max-w-sm w-full  mx-auto ">
+      <h2 class="text-2xl font-semibold text-white flex items-center gap-2 mb-4">
+        📝 <span>Schedule Details</span>
+      </h2>
+  
+      <div class="space-y-2 text-gray-300 text-[1.05rem]">
+        <p><span class="font-semibold text-white">Title:</span> {{ data.title }}</p>
+        <p><span class="font-semibold text-white">Description:</span> {{ data.description }}</p>
+  <p><span class="font-semibold text-white">Date:</span> {{ data.date | date: 'longDate' }}</p>
+       
+      </div>
+  
+      <div class="mt-6 text-right">
+        <button
+          mat-dialog-close
+          (click)="onClose()"
+          class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 transition-all font-medium shadow-sm"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </ng-container>

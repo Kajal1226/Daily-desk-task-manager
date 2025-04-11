@@ -1,0 +1,58 @@
+<div class="min-h-screen bg-gray-50 px-4 py-6">
+
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-md">
+      <h3 class="text-xl font-semibold text-gray-800 mb-4">
+        Create a New Schedule
+      </h3>
+      <form
+        [formGroup]="todoForm"
+        (ngSubmit)="onSubmit()"
+        class="grid grid-cols-1 gap-6 mb-8"
+      >
+        <div>
+          <label class="block text-gray-700 text-lg font-medium mb-1"
+            >Title:</label
+          >
+          <input
+            type="text"
+            formControlName="title"
+            placeholder="Enter title"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 text-base"
+          />
+        </div>
+  
+        <div>
+          <label class="block text-gray-700 text-lg font-medium mb-1"
+            >Description:</label
+          >
+          <textarea
+            formControlName="description"
+            placeholder="Enter description"
+            rows="4"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 text-base"
+          ></textarea>
+        </div>
+  
+        <div>
+          <label class="block text-gray-700 text-lg font-medium mb-1"
+            >Date:</label
+          >
+          <input
+            type="date"
+            formControlName="date"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 text-base"
+          />
+        </div>
+  
+        <div>
+          <button
+            type="submit"
+            class="w-full sm:w-auto bg-blue-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

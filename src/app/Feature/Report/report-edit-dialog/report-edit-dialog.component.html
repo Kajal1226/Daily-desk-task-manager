@@ -1,0 +1,52 @@
+<div
+  class="w-full max-w-sm md:max-w-md bg-zinc-900 text-white rounded-2xl p-6 shadow-lg border border-blue-400 mx-auto"
+>
+  <h2 class="text-2xl font-semibold text-white mb-8">✏️ Edit Task</h2>
+
+  <div class="space-y-4">
+    <div>
+      <label class="block text-lg font-medium text-white mb-1">Title:</label>
+      <input
+        type="text"
+        [(ngModel)]="editedTask.title"
+        name="title"
+        required
+        class="w-[96%] px-4 py-2 ml-2 rounded-md bg-zinc-800 border border-gray-600 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        placeholder="Enter title"
+      />
+    </div>
+
+    <!-- Description Input -->
+    <div>
+      <label class="block text-lg font-medium text-white mb-1"
+        >Description:</label
+      >
+      <input
+        type="text"
+        [(ngModel)]="editedTask.description"
+        name="description"
+        required
+        class="w-[96%] px-4 py-2 ml-2 rounded-md bg-zinc-800 border border-gray-600 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        placeholder="Enter description"
+      />
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-end gap-4 pt-4">
+      <button
+        type="submit"
+        (click)="onSubmit()"
+        class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold px-5 py-2 rounded-full hover:from-blue-600 hover:to-purple-700 transition"
+      >
+        Save
+      </button>
+      <button
+        type="button"
+        (click)="onClose()"
+        class="text-pink-400 hover:text-pink-300 font-semibold px-4 py-2 rounded transition"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>
