@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-50 px-4 py-6">
+<div class=" bg-gray-50 px-4 py-6">
   <!-- Header -->
   <header class="mb-6">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -13,22 +13,27 @@
       </button>
     </div>
   </header>
+<div
+  *ngIf="pendingCount() > 0"
+  class="max-w-6xl mx-auto mb-4 p-4 rounded-md bg-yellow-100 border-l-4 border-yellow-500 flex items-center gap-2"
+>
+  <span>⚠️ Reminder: You have {{ pendingCount() }} pending task{{ pendingCount() > 1 ? 's' : '' }}!</span>
+</div>
 
-  <!-- Task Table -->
   <ng-container *ngIf="tasks().length > 0; else noData">
     <div class="max-w-6xl mx-auto px-2 sm:px-4 lg:px-8 py-6 overflow-x-auto">
       <table class="min-w-full border border-gray-200 text-sm">
         <!-- Table Head -->
-        <thead class="bg-blue-600 text-white uppercase text-xs">
+        <thead class="bg-blue-400 text-white uppercase text-xs">
           <tr>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">ID</th>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">Title</th>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">Description</th>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">Date</th>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">Completed</th>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">Edit</th>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">Delete</th>
-            <th class="px-4 py-3 font-semibold text-black text-left whitespace-nowrap">View</th>
+            <th class="px-4 py-3 font-semibold text-center text-black  whitespace-nowrap">ID</th>
+            <th class="px-4 py-3 font-semibold text-black text-center whitespace-nowrap">Title</th>
+            <th class="px-4 py-3 font-semibold text-black text-center whitespace-nowrap">Description</th>
+            <th class="px-4 py-3 font-semibold text-black text-center whitespace-nowrap">Date</th>
+            <th class="px-4 py-3 font-semibold text-black text-center whitespace-nowrap">Completed</th>
+            <th class="px-4 py-3 font-semibold text-black text-center whitespace-nowrap">Edit</th>
+            <th class="px-4 py-3 font-semibold text-black text-center whitespace-nowrap">Delete</th>
+            <th class="px-4 py-3 font-semibold text-black text-center whitespace-nowrap">View</th>
           </tr>
         </thead>
 
@@ -45,14 +50,14 @@
             <td class="px-4 py-3 text-center">
               <input
                 type="checkbox"
-                [(ngModel)]="t.completed"
+               [checked]="t.completed"
                 (change)="toggleComplete(t)"
-                class="accent-blue-500 w-4 h-4"
+                class="accent-blue-600 w-4 h-4 "
               />
             </td>
             <td class="px-4 py-3 text-center">
               <button
-                class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded shadow-sm transition"
+                class="bg-blue-400 hover:bg-blue-600 text-white px-3 py-1 rounded shadow-sm transition"
                 (click)="editSchedule(t)"
               >
                 Edit
@@ -60,7 +65,7 @@
             </td>
             <td class="px-4 py-3 text-center">
               <button
-                class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded shadow-sm transition"
+                class="bg-blue-400 hover:bg-red-600 text-white px-3 py-1 rounded shadow-sm transition"
                 (click)="deleteSchedule(t.id!)"
               >
                 Delete
@@ -68,7 +73,7 @@
             </td>
             <td class="px-4 py-3 text-center">
               <button
-                class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded shadow-sm transition"
+                class="bg-blue-400 hover:bg-yellow-600 text-white px-3 py-1 rounded shadow-sm transition"
                 (click)="openDialog(t.id ?? 0)"
               >
                 View
@@ -80,7 +85,6 @@
     </div>
   </ng-container>
 
-  <!-- No Data Template -->
   <ng-template #noData>
     <div class="text-center text-gray-600 mt-10 text-lg">
       😕 No tasks available. Try creating a schedule!

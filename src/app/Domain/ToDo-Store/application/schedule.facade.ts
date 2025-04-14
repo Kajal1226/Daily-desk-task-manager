@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { scheduleSelectFeature } from '../store/schedule.store';
 import { ScheduleActions } from '../store/schedule.action';
@@ -10,8 +10,12 @@ export class ScheduleFacade {
   feature = scheduleSelectFeature;
   actions = ScheduleActions;
 
-  selectList$ = this.store.selectSignal(this.feature.selectSchedules);
+  selectList$ = this.store.selectSignal(this.feature.selectSchedules)
   selectScheduleDetail$ = this.store.select(this.feature.selectScheduleDetail);
+  
+  pendingCount = computed(() => 
+    this.selectList$().filter(task => !task.completed).length
+  );
 
   loadSchedule() {
     this.store.dispatch(this.actions.loadSchedule());
@@ -31,4 +35,6 @@ export class ScheduleFacade {
   detailSchedule(id: number) {
     this.store.dispatch(this.actions.detailSchedule({ id }));
   }
+
+
 }

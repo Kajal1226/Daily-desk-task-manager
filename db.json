@@ -1,30 +1,24 @@
 {
   "reports": [
     {
-      "title": "fgfg",
-      "description": "gfg",
+      "title": "Write Meeting Notes",
+      "description": "Summarize key points from the team meeting",
       "completed": false,
       "id": 1
-    },
-    {
-      "title": "fgg",
-      "description": "fgfg",
-      "completed": false,
-      "id": 2
     }
   ],
   "schedule": [
     {
-      "title": "fgfg",
-      "description": "gfgf",
-      "date": "2025-05-03",
-      "completed": true,
+      "title": "Review the latest pull request on GitHub",
+      "description": "Discuss project milestones and deliverables",
+      "date": "2025-04-10",
+      "completed": false,
       "id": 1
     },
     {
-      "title": "fdgfgf",
-      "description": "fdgfg",
-      "date": "2025-04-22",
+      "title": "Write Blog Post",
+      "description": "Create a draft for the next tech blog post",
+      "date": "2025-03-18",
       "completed": true,
       "id": 2
     }

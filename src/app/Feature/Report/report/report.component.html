@@ -1,5 +1,5 @@
 <!-- Report Wrapper -->
-<div class="min-h-screen bg-gray-50 px-4 py-6">
+<div class=" bg-gray-50 px-4 py-6">
     <!-- Report Header -->
     <header class="mb-6">
       <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -23,23 +23,23 @@
         <ng-container *ngIf="tasks.length > 0; else noData">
           <div class="overflow-x-auto border border-gray-300 rounded-lg shadow-sm">
             <table class="min-w-full text-sm text-left">
-              <thead class="bg-blue-600 text-white uppercase text-xs">
+              <thead class="bg-blue-400 text-white uppercase text-xs">
                 <tr>
-                  <th class="px-4 py-3 font-semibold text-black whitespace-nowrap">ID</th>
-                  <th class="px-4 py-3 font-semibold text-black whitespace-nowrap">Task</th>
-                  <th class="px-4 py-3 font-semibold text-black whitespace-nowrap">Edit</th>
-                  <th class="px-4 py-3 font-semibold text-black whitespace-nowrap">Delete</th>
-                  <th class="px-4 py-3 font-semibold text-black whitespace-nowrap">View</th>
+                  <th class="px-4 py-3 font-semibold text-center text-black whitespace-nowrap">ID</th>
+                  <th class="px-4 py-3 font-semibold text-center text-black whitespace-nowrap">Task</th>
+                  <th class="px-4 py-3 font-semibold text-center text-black whitespace-nowrap">Edit</th>
+                  <th class="px-4 py-3 font-semibold text-center text-black whitespace-nowrap">Delete</th>
+                  <th class="px-4 py-3 font-semibold text-center text-black whitespace-nowrap">View</th>
                 </tr>
               </thead>
               <tbody class="bg-white text-gray-900 divide-y divide-gray-200">
                 <tr *ngFor="let task of tasks" class="hover:bg-gray-100 transition">
                   <td class="px-4 py-2 text-center">{{ task.id }}</td>
-                  <td class="px-4 py-2">{{ task.title }}</td>
+                  <td class="px-4 py-2 text-center">{{ task.title }}</td>
                   <td class="px-4 py-2 text-center">
                     <button
                       (click)="editTask(task)"
-                      class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md transition"
+                      class="bg-blue-400 hover:bg-blue-600 text-white px-3 py-1 rounded-md transition"
                     >
                       Edit
                     </button>
@@ -47,7 +47,7 @@
                   <td class="px-4 py-2 text-center">
                     <button
                       (click)="deleteTask(task.id ?? 0)"
-                      class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md transition"
+                      class="bg-blue-400 hover:bg-red-600 text-white px-3 py-1 rounded-md transition"
                     >
                       Delete
                     </button>
@@ -55,7 +55,7 @@
                   <td class="px-4 py-2 text-center">
                     <button
                       (click)="openDialog(task.id ?? 0)"
-                      class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md transition"
+                      class="bg-blue-400 hover:bg-yellow-600 text-white px-3 py-1 rounded-md transition"
                     >
                       View
                     </button>

@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ScheduleFacade } from '../../../Domain/ToDo-Store/application/schedule.facade';
 import { Schedule } from '../../../Domain/ToDo-Store/entity/schedule.model';
 import { ScheduleEditDialogComponent } from '../schedule-edit-dialog/schedule-edit-dialog.component';
@@ -18,17 +19,17 @@ import { ScheduleViewDialogComponent } from '../schedule-view-dialog/schedule-vi
   selector: 'app-schedule',
   imports: [ReactiveFormsModule, CommonModule, FormsModule, RouterModule],
   templateUrl: './schedule.component.html',
-  styleUrl: './schedule.component.css'
+  styleUrl: './schedule.component.css',
 })
 export class ScheduleComponent {
   editTitle: string = '';
 
-  // showForm: boolean = false;
   dialog = inject(MatDialog);
   facade = inject(ScheduleFacade);
   router = inject(Router);
   dialogService = inject(scheduleEditDialogService);
   tasks = this.facade.selectList$;
+  pendingCount = this.facade.pendingCount;
 
   toggleComplete(task: Schedule) {
     const updated = { ...task, completed: !task.completed };
